@@ -46,7 +46,6 @@ public class Maze : MonoBehaviour
         player.transform.localPosition =
             new Vector3(playerCoordinates.x - size.x * 0.5f + 0.5f, 3f, playerCoordinates.z - size.z * 0.5f + 0.5f);
         IntVector2 goalCoordinates = RandomCoordinates;
-        Debug.Log("x: " + goalCoordinates.x + "- z: " + goalCoordinates.z);
         this.goal = Instantiate(goalPrefab) as Goal;
         goal.transform.localPosition =
             new Vector3(goalCoordinates.x - size.x * 0.5f + 0.5f, 3f, goalCoordinates.z - size.z * 0.5f + 0.5f);

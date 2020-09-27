@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size:
-    x: 8
-    z: 8
+    x: 5
+    z: 5
   cellPrefab: {fileID: 2310219575932509638, guid: 27a07ec3eb89ef54ba6af0121db680ee,
     type: 3}
   passagePrefab: {fileID: 8738221152759962642, guid: bb6a46b49ffc4be488b3f9dcc2b9142d,
