@@ -65,8 +65,6 @@ public class GameManager : MonoBehaviour
 
     private void EndGame()
     {
-        currentLevel = 1;
-        secondsLeft = initialSeconds;
         this.maze.Reset();
         Destroy(this.maze.gameObject);
     }
@@ -74,6 +72,8 @@ public class GameManager : MonoBehaviour
     private void RestartGame()
     {
         EndGame();
+        currentLevel = 1;
+        secondsLeft = initialSeconds;
         BeginGame();
     }
 }
