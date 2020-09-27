@@ -8,11 +8,20 @@ public class Maze : MonoBehaviour
     public MazeCell cellPrefab;
     public MazePassage passagePrefab;
     public MazeWall wallPrefab;
+    public Player playerPrefab;
+    private Player player;
     private MazeCell[,] cells;
+
+    private IntVector2 playerCoordinates;
 
     public MazeCell GetCell(IntVector2 coordinates)
     {
         return cells[coordinates.x, coordinates.z];
+    }
+
+    public void Reset()
+    {
+        Destroy(player.gameObject);
     }
 
     public void Generate()
@@ -24,11 +33,21 @@ public class Maze : MonoBehaviour
         {
             DoNextGenerationStep(activeCells);
         }
+        GenerateGame();
+    }
+
+    private void GenerateGame()
+    {
+        this.player = Instantiate(playerPrefab) as Player;
+        player.transform.localPosition =
+            new Vector3(playerCoordinates.x - size.x * 0.5f + 0.5f, 3f, playerCoordinates.z - size.z * 0.5f + 0.5f);
     }
 
     private void DoFirstGenerationStep(List<MazeCell> activeCells)
     {
-        activeCells.Add(CreateCell(RandomCoordinates));
+        IntVector2 coordinates = RandomCoordinates;
+        this.playerCoordinates = coordinates;
+        activeCells.Add(CreateCell(coordinates));
     }
 
     private void DoNextGenerationStep(List<MazeCell> activeCells)

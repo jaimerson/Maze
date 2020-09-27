@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
 
     private void RestartGame()
     {
+        this.maze.Reset();
         Destroy(this.maze.gameObject);
         BeginGame();
     }
