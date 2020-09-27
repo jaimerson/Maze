@@ -10,22 +10,18 @@ public class Maze : MonoBehaviour
     public MazeWall wallPrefab;
     private MazeCell[,] cells;
 
-    public float generationStepDelay;
-
     public MazeCell GetCell(IntVector2 coordinates)
     {
         return cells[coordinates.x, coordinates.z];
     }
 
-    public IEnumerator Generate()
+    public void Generate()
     {
-        WaitForSeconds delay = new WaitForSeconds(generationStepDelay);
         cells = new MazeCell[size.x, size.z];
         List<MazeCell> activeCells = new List<MazeCell>();
         DoFirstGenerationStep(activeCells);
         while (activeCells.Count > 0)
         {
-            yield return delay;
             DoNextGenerationStep(activeCells);
         }
     }

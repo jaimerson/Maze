@@ -24,12 +24,11 @@ public class GameManager : MonoBehaviour
     private void BeginGame()
     {
         this.maze = Instantiate(mazePrefab) as Maze;
-        StartCoroutine(maze.Generate());
+        maze.Generate();
     }
 
     private void RestartGame()
     {
-        StopAllCoroutines();
         Destroy(this.maze.gameObject);
         BeginGame();
     }
