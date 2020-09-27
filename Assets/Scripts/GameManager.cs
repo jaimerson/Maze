@@ -26,11 +26,6 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         text.text = secondsLeft.ToString();
-
-        if (secondsLeft <= 0)
-        {
-            RestartGame();
-        }
     }
 
     private IEnumerator timer()
@@ -38,6 +33,11 @@ public class GameManager : MonoBehaviour
         while (true)
         {
             secondsLeft -= 1;
+
+            if (secondsLeft <= 0)
+            {
+                RestartGame();
+            }
             yield return new WaitForSeconds(1);
         }
     }
@@ -65,6 +65,8 @@ public class GameManager : MonoBehaviour
 
     private void EndGame()
     {
+        currentLevel = 1;
+        secondsLeft = initialSeconds;
         this.maze.Reset();
         Destroy(this.maze.gameObject);
     }
