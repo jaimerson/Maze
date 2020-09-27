@@ -10,7 +10,10 @@ public class Maze : MonoBehaviour
     public MazeWall wallPrefab;
     public Player playerPrefab;
     private Player player;
+    public Goal goalPrefab;
+    private Goal goal;
     private MazeCell[,] cells;
+    public GameManager game;
 
     private IntVector2 playerCoordinates;
 
@@ -22,6 +25,7 @@ public class Maze : MonoBehaviour
     public void Reset()
     {
         Destroy(player.gameObject);
+        Destroy(goal.gameObject);
     }
 
     public void Generate()
@@ -35,12 +39,17 @@ public class Maze : MonoBehaviour
         }
         GenerateGame();
     }
-
     private void GenerateGame()
     {
         this.player = Instantiate(playerPrefab) as Player;
+        player.game = this.game;
         player.transform.localPosition =
             new Vector3(playerCoordinates.x - size.x * 0.5f + 0.5f, 3f, playerCoordinates.z - size.z * 0.5f + 0.5f);
+        IntVector2 goalCoordinates = RandomCoordinates;
+        Debug.Log("x: " + goalCoordinates.x + "- z: " + goalCoordinates.z);
+        this.goal = Instantiate(goalPrefab) as Goal;
+        goal.transform.localPosition =
+            new Vector3(goalCoordinates.x - size.x * 0.5f + 0.5f, 3f, goalCoordinates.z - size.z * 0.5f + 0.5f);
     }
 
     private void DoFirstGenerationStep(List<MazeCell> activeCells)

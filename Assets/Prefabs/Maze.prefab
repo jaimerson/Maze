@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4114283954859574862}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.36733818, y: 2.686439, z: -1.7830515}
+  m_LocalPosition: {x: 0, y: 2.686439, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size:
-    x: 20
-    z: 20
+    x: 8
+    z: 8
   cellPrefab: {fileID: 2310219575932509638, guid: 27a07ec3eb89ef54ba6af0121db680ee,
     type: 3}
   passagePrefab: {fileID: 8738221152759962642, guid: bb6a46b49ffc4be488b3f9dcc2b9142d,
@@ -54,3 +54,6 @@ MonoBehaviour:
     type: 3}
   playerPrefab: {fileID: 2178214007457895577, guid: 45d58522ead589f428ae0f0b4399c767,
     type: 3}
+  goalPrefab: {fileID: 8684816821570734772, guid: 8ba8e1856199b56bfb8f007979c571e6,
+    type: 3}
+  game: {fileID: 0}

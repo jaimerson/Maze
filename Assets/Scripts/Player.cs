@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float speed;
+    public GameManager game;
     private Rigidbody body;
     // Start is called before the first frame update
     void Start()
@@ -18,5 +19,13 @@ public class Player : MonoBehaviour
         float forceX = Input.GetAxis("Horizontal") * speed;
         float forceZ = Input.GetAxis("Vertical") * speed;
         body.AddForce(forceX, 0, forceZ, ForceMode.Impulse);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Goal"))
+        {
+            game.NextLevel();
+        }
     }
 }

@@ -21,16 +21,33 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void NextLevel()
+    {
+        EndGame();
+
+        IntVector2 nextSize = this.maze.size + new IntVector2(1, 1);
+        this.maze = Instantiate(mazePrefab) as Maze;
+        maze.game = this;
+        maze.size = nextSize;
+        maze.Generate();
+    }
+
     private void BeginGame()
     {
         this.maze = Instantiate(mazePrefab) as Maze;
+        maze.game = this;
         maze.Generate();
+    }
+
+    private void EndGame()
+    {
+        this.maze.Reset();
+        Destroy(this.maze.gameObject);
     }
 
     private void RestartGame()
     {
-        this.maze.Reset();
-        Destroy(this.maze.gameObject);
+        EndGame();
         BeginGame();
     }
 }
