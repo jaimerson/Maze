@@ -52,7 +52,7 @@ MonoBehaviour:
     type: 3}
   wallPrefab: {fileID: 1224111200701953355, guid: 1518e645b5371dbd98e568e16260cd47,
     type: 3}
-  playerPrefab: {fileID: 2178214007457895577, guid: 45d58522ead589f428ae0f0b4399c767,
+  playerPrefab: {fileID: 8085727732267023446, guid: 8e1d4e37f61f364a58024ba4ed95721d,
     type: 3}
   goalPrefab: {fileID: 8684816821570734772, guid: 8ba8e1856199b56bfb8f007979c571e6,
     type: 3}
