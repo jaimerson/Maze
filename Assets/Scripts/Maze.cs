@@ -8,6 +8,7 @@ public class Maze : MonoBehaviour
     public MazeCell cellPrefab;
     public MazePassage passagePrefab;
     public MazeWall wallPrefab;
+    public CameraFollow camera;
     public Player playerPrefab;
     private Player player;
     public Goal goalPrefab;
@@ -43,6 +44,7 @@ public class Maze : MonoBehaviour
     {
         this.player = Instantiate(playerPrefab) as Player;
         player.game = this.game;
+        camera.target = player.gameObject;
         player.transform.localPosition =
             new Vector3(playerCoordinates.x - size.x * 0.5f + 0.5f, 3f, playerCoordinates.z - size.z * 0.5f + 0.5f);
         IntVector2 goalCoordinates = RandomCoordinates;

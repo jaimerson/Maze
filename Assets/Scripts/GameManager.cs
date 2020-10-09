@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     private Maze maze;
     public Text text;
     public Text level;
+    public CameraFollow camera;
     public int initialSeconds;
     private int secondsLeft;
     private int currentLevel;
@@ -52,6 +53,7 @@ public class GameManager : MonoBehaviour
         IntVector2 nextSize = this.maze.size + new IntVector2(1, 1);
         this.maze = Instantiate(mazePrefab) as Maze;
         maze.game = this;
+        maze.camera = camera;
         maze.size = nextSize;
         maze.Generate();
     }
@@ -60,6 +62,7 @@ public class GameManager : MonoBehaviour
     {
         this.maze = Instantiate(mazePrefab) as Maze;
         maze.game = this;
+        maze.camera = camera;
         maze.Generate();
     }
 
