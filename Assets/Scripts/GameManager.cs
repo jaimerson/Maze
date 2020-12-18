@@ -11,8 +11,8 @@ public class GameManager : MonoBehaviour
     public Text level;
     public CameraFollow camera;
     public int initialSeconds;
-    private int secondsLeft;
-    private int currentLevel;
+    public int secondsLeft;
+    public int currentLevel;
     // Start is called before the first frame update
     void Start()
     {
